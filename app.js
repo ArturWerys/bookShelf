@@ -72,17 +72,17 @@ function deleteBook() {
 
     let found = false;
 
-    // Usuń z listy "Przeczytane"
+   
     if (readList.includes(title)) {
         readList = readList.filter(book => book !== title);
-        localStorage.setItem("readList", JSON.stringify(readList)); // Ręczne zapisanie zmian
+        localStorage.setItem("readList", JSON.stringify(readList)); 
         found = true;
     }
 
-    // Usuń z listy "Do przeczytania"
+
     if (toReadList.includes(title)) {
         toReadList = toReadList.filter(book => book !== title);
-        localStorage.setItem("toReadList", JSON.stringify(toReadList)); // Ręczne zapisanie zmian
+        localStorage.setItem("toReadList", JSON.stringify(toReadList)); 
         found = true;
     }
 
