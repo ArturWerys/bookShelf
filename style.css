@@ -155,6 +155,18 @@ button:hover {
     caret-color: var(--background);
 }
 
+#delete-title-input {
+    box-sizing: border-box;
+    padding: 12px 20px;
+    width: 100%;
+    background: none;
+    border: 2px solid var(--orange-color);
+    border-radius: 1000px;
+    font: inherit;
+    color: var(--text-color);
+    caret-color: var(--background);
+}
+
 #book-form {
     display: flex;
     justify-content: center;

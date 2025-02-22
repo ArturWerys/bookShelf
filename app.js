@@ -1,4 +1,5 @@
 const titleInput = document.getElementById("title-input");
+const deleteTitleInput = document.getElementById("delete-title-input");
 
 let allList = getAllBooks();
 let readList = getRead();
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const readSection = document.getElementById("read-section");
     const toReadSection = document.getElementById("to-read-section");
     const addBookSection = document.getElementById("add-book-section");
-    const deleteBook = document.getElementById("delete-book-section");
+    const deleteBookSection = document.getElementById("delete-book-section");
 
     document.getElementById("all-books").addEventListener("click", () => showSection(allBooksSection));
     document.getElementById("read").addEventListener("click", () => showSection(readSection));
@@ -20,8 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         addBook();
     });
-    document.getElementById("delete-book").addEventListener("click", () => showSection(deleteBook));
-
+    document.getElementById("delete-book").addEventListener("click", () => showSection(deleteBookSection));
+    document.getElementById("delete-book-button").addEventListener("click", (event) => {
+        event.preventDefault();
+        deleteBook();
+    });
     
     updateAllLists();
 });
@@ -63,7 +67,8 @@ function addBook(){
     titleInput.value = "";
 }
 function deleteBook() {
-    const title = titleInput.value.trim();
+    alert("Book deleted!");
+    const title = deleteTitleInput.value.trim();
 
     if (!title) {
         alert("Please enter a title to delete");
@@ -91,7 +96,6 @@ function deleteBook() {
         return;
     }
 
-    // Odśwież listy
     updateAllLists();
     titleInput.value = "";
 }
