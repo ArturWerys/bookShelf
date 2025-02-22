@@ -10,24 +10,27 @@
     </head>
     <body>
         <h1>Good Morning!</h1>
-
-        <div id="buttons">
+        <h_quote>Who reads books, he lives a double life</h_quote> 
+        <h3>Choose a section
+        
+            <div id="buttons">
             <button id="all-books">All books</button>
             <button id="read">Read</button>
             <button id="to-read">To read</button>
             <button id="add-book">Add book</button>
             <button id="delete-book">Delete book</button>
         </div>
-
+        </h3>
+        <h_section>
         <div id = "all-books-section" class="hidden">
-            <h2>All books</h2>
+  
             <ul id="all-books-list">
 
             </ul>
         </div>
         
         <div id="read-section">
-            <h2>Books read</h2>
+    
             <ul id="read-list">
 
             </ul>
@@ -35,7 +38,7 @@
         </div>
 
         <div id="to-read-section" class="hidden">
-            <h2>Books to read</h2>
+
             <ul id="to-read-list">
  
             </ul>
@@ -43,33 +46,33 @@
         </div>
 
         <div id="add-book-section" class="hidden">
-            <h2>Add a book</h2>
+ 
             <form>
                 <input id="title-input" type="text" 
                 placeholder="Write title and hit enter to add" autocomplete="off">
 
-                <div id="book-status">
-                    <label class="container"> 
-                        Read
-                        <input type="radio" name="book-status" value="read" checked>
-                        <span class="checkmark"></span>
-                    </label>
-                
-                    <label class="container"> 
-                        To read
-                        <input type="radio" name="book-status" value="to-read">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-                
 
-                <button id="add-book-button">ADD</button>
             </form>
+            <div id="book-status-buttons">
+                <label class="container"> 
+                    Read
+                    <input type="radio" name="book-status-buttons" value="read" checked>
+                    <span class="checkmark"></span>
+                </label>
+            
+                <label class="container"> 
+                    To read
+                    <input type="radio" name="book-status-buttons" value="to-read">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            
 
+            <button id="add-book-button">ADD</button>
         </div>
 
         <div id="delete-book-section" class="hidden">
-            <h2>Delete a book</h2>  
+   
             <form>
                 <input id="delete-title-input" type="text" 
                 placeholder="Write title and hit enter to delete" autocomplete="off">
@@ -78,7 +81,7 @@
                 <button id="delete-book-button">Delete</button>
             </form>
 
-
+        </h_section>
         <script src="app.js"></script>
 
     </body>

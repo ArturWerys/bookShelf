@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const deleteBookSection = document.getElementById("delete-book-section");
 
     document.getElementById("all-books").addEventListener("click", () => showSection(allBooksSection));
+
+
     document.getElementById("read").addEventListener("click", () => showSection(readSection));
     document.getElementById("to-read").addEventListener("click", () => showSection(toReadSection));
     document.getElementById("add-book").addEventListener("click", () => showSection(addBookSection));
@@ -37,9 +39,25 @@ function showSection(section) {
     document.getElementById("add-book-section").classList.add("hidden");
     document.getElementById("delete-book-section").classList.add("hidden");
 
+    document.querySelectorAll("#buttons button").forEach(button => {
+        button.classList.remove("active-button");
+    });
+
     section.classList.remove("hidden");
 
+    if (section.id === "all-books-section") {
+        document.getElementById("all-books").classList.add("active-button");
+    } else if (section.id === "read-section") {
+        document.getElementById("read").classList.add("active-button");
+    } else if (section.id === "to-read-section") {
+        document.getElementById("to-read").classList.add("active-button");
+    } else if (section.id === "add-book-section") {
+        document.getElementById("add-book").classList.add("active-button");
+    } else if (section.id === "delete-book-section") {
+        document.getElementById("delete-book").classList.add("active-button");
+    }
 }
+
 
 function addBook(){
     const title = titleInput.value.trim();
