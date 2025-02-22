@@ -7,30 +7,45 @@ let toReadList = getToRead();
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
     const allBooksSection = document.getElementById("all-books-section");
-    const readSection = document.getElementById("read-section");
-    const toReadSection = document.getElementById("to-read-section");
-    const addBookSection = document.getElementById("add-book-section");
-    const deleteBookSection = document.getElementById("delete-book-section");
+    const greetingElement = document.querySelector("h1_greeting");  
+    const hour = new Date().getHours();
+
+    let greetingText = "";
+
+    if (hour >= 5 && hour < 12) {
+        greetingText = "Good Morning!";
+    } else if (hour >= 12 && hour < 18) {
+        greetingText = "Good Afternoon!";
+    } else {
+        greetingText = "Good Evening!";
+    }
+
+    greetingElement.textContent = greetingText;
+
+    document.getElementById("all-books").classList.add("active-button"); // Ustawienie przycisku jako aktywnego
+    showSection(allBooksSection); // Pokazanie sekcji "All books"
 
     document.getElementById("all-books").addEventListener("click", () => showSection(allBooksSection));
+    document.getElementById("read").addEventListener("click", () => showSection(document.getElementById("read-section")));
+    document.getElementById("to-read").addEventListener("click", () => showSection(document.getElementById("to-read-section")));
+    document.getElementById("add-book").addEventListener("click", () => showSection(document.getElementById("add-book-section")));
+    document.getElementById("delete-book").addEventListener("click", () => showSection(document.getElementById("delete-book-section")));
 
-
-    document.getElementById("read").addEventListener("click", () => showSection(readSection));
-    document.getElementById("to-read").addEventListener("click", () => showSection(toReadSection));
-    document.getElementById("add-book").addEventListener("click", () => showSection(addBookSection));
     document.getElementById("add-book-button").addEventListener("click", (event) => {
         event.preventDefault();
         addBook();
     });
-    document.getElementById("delete-book").addEventListener("click", () => showSection(deleteBookSection));
+
     document.getElementById("delete-book-button").addEventListener("click", (event) => {
         event.preventDefault();
         deleteBook();
     });
-    
+
     updateAllLists();
 });
+
 
 function showSection(section) {
     document.getElementById("all-books-section").classList.add("hidden");
@@ -60,14 +75,15 @@ function showSection(section) {
 
 
 function addBook(){
+
     const title = titleInput.value.trim();
-    const status = document.querySelector('input[name="book-status"]:checked').value;
+
+    const status = document.querySelector('input[name="book-status-buttons"]:checked').value;
 
     if (!title) {
         alert("Please enter a title");
         return;
     }
-
 
     if( status === "read"){
         readList.push(title);
@@ -83,9 +99,10 @@ function addBook(){
     updateList(allList, "all-books-list");
 
     titleInput.value = "";
+
 }
 function deleteBook() {
-    alert("Book deleted!");
+
     const title = deleteTitleInput.value.trim();
 
     if (!title) {
@@ -116,6 +133,7 @@ function deleteBook() {
 
     updateAllLists();
     titleInput.value = "";
+    alert("Book deleted!");
 }
 
 

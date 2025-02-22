@@ -31,7 +31,7 @@ body {
 }
 
 /* 🏷️ 3. Nagłówki */
-h1 {
+h1_greeting {
     margin-top: 70px;
     margin-bottom: 20px;
     font-size: 3rem;
@@ -238,6 +238,7 @@ li {
     font-size: 14px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    background-image: url('harry.jpg'); Ścieżka do obrazu
 }
 
 /* 🚀 8. Klasy pomocnicze */
